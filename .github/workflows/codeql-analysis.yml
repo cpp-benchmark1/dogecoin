@@ -32,9 +32,9 @@ jobs:
     - if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
-        sudo apt-get install autoconf automake make binutils ca-certificates curl faketime git-core libtool pkg-config bison
-        sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+        sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils autoconf automake make binutils ca-certificates curl faketime git-core libtool pkg-config bison
+        sudo apt-get install autoconf-archive libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+        autoreconf -if
         ./autogen.sh
         ./configure --disable-wallet
         make && make install
